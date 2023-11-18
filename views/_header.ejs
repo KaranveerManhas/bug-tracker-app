@@ -1,15 +1,25 @@
 <link rel="stylesheet" href="/css/_header.css">
 
 <header>
-    <h1>Testify</h1>
+    <a href="/"><h1>Testify</h1></a>
     <!-- Show this if the user is logged in -->
-    <!-- <div class="user">
+    <% if (locals.user) { %>
+    <div class="user">
         <div class="user-info">
-            <h3>Karanveer Singh</h3>
-            <p>QA Lead</p>
+            <h3><%= user.name %></h3>
         </div>
-        <img src="/images/profile.png" alt="">
-    </div> -->
+        <img src="/images/profile.png" alt="Avatar">
+        <div class="dropdown">
+            <a href="#" class="dropbtn">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </a>
+            <div class="dropdown-content">
+                <a href="/users/profile/<%= user._id %>">Profile</a>
+                <a href="/users/sign-out">Logout</a>
+            </div>
+        </div>
+    </div>
+    <% }else { %>
     <!-- Show this if the user is not logged in -->
     <div class="login-options">
         <a href="/users/sign-in">Sign in</a>
@@ -17,4 +27,5 @@
             Sign Up
         </a>
     </div>
+    <% } %>
 </header>

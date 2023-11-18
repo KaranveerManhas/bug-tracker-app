@@ -1,10 +1,10 @@
 header {
   width: 100%;
-  padding: 1% 5%;
+  padding: 20px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  header > h1 {
+  header h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
     font-weight: 500;
@@ -16,7 +16,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px; }
+    gap: 10px; }
     header .user .user-info {
       display: flex;
       flex-direction: column;
@@ -24,12 +24,34 @@ header {
       header .user .user-info h3 {
         font-weight: 400;
         line-height: 1.5rem; }
-      header .user .user-info p {
-        font-size: 14px; }
     header .user img {
       max-width: 80px;
       max-height: 80px;
       border-radius: 50%; }
+    header .user .dropdown {
+      position: relative;
+      display: inline-block;
+      align-self: flex-end; }
+      header .user .dropdown:hover .dropdown-content {
+        display: block; }
+      header .user .dropdown .dropbtn {
+        color: white;
+        padding: 10px;
+        font-size: 1rem;
+        border: none; }
+      header .user .dropdown .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 10%;
+        background-color: #383c41;
+        min-width: 80px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1; }
+        header .user .dropdown .dropdown-content a {
+          padding: 5px 10px;
+          display: block; }
+          header .user .dropdown .dropdown-content a:hover {
+            background-color: grey; }
   header .login-options {
     display: flex;
     gap: 1rem; }

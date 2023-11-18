@@ -2,7 +2,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
+  min-height: 80vh;
   background: inherit; }
 
 .wrapper {
@@ -52,12 +52,22 @@ main {
     font-size: 16px;
     color: #f87f8d;
     font-weight: 600; }
-    .wrapper .btn i {
+  .wrapper .btn-2 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; }
+    .wrapper .btn-2 i {
       font-size: 1.5rem;
       color: #000; }
-    .wrapper .btn:last-child {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px; }
+  .wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px; }
+    .wrapper .register-link p a {
+      font-weight: 600;
+      color: #f87f8d; }
+      .wrapper .register-link p a:hover {
+        color: #fff;
+        text-decoration: underline; }

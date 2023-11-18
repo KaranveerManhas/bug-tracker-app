@@ -1,11 +1,11 @@
 main {
   font-family: 'Poppins';
-  padding: 0 5%; }
+  padding: 0 50px; }
   main .project-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5% 0.5%; }
+    padding: 50px 0px 10px 10px; }
     main .project-heading h2 {
       font-weight: 400;
       text-transform: uppercase;
@@ -22,7 +22,7 @@ main {
       main .project-heading #create-project i {
         color: #ff6e7f; }
   main .projects {
-    padding: 2%;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -32,7 +32,7 @@ main {
       display: none; }
     main .projects .card {
       background-color: #383c41;
-      box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
       width: 300px;
       height: 200px;
       border-radius: 1rem;
@@ -74,5 +74,3 @@ main {
           main .projects .card .issue-count-author-container .author img {
             max-width: 50px;
             border-radius: 50%; }
-          main .projects .card .issue-count-author-container .author p {
-            word-wrap: break-word; }
