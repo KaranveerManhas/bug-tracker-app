@@ -5,28 +5,45 @@ header {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2); }
   header .user {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-start;
     gap: 10px; }
     header .user .user-info {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
       gap: 10px; }
       header .user .user-info h3 {
         font-weight: 400;
         text-transform: capitalize; }
-      header .user .user-info i {
-        font-size: 0.5rem; }
-    header .user img {
-      max-width: 80px;
-      max-height: 80px;
-      border-radius: 50%; }
+      header .user .user-info img {
+        max-width: 80px;
+        max-height: 80px;
+        border-radius: 50%; }
+    header .user .profile-links {
+      width: 100%;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px; }
+      header .user .profile-links a {
+        width: 100%;
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 10px 0;
+        border-radius: 20px; }
+        header .user .profile-links a:hover {
+          background-color: #f87f8d; }
   header .login-options {
     display: flex;
     flex-direction: column;

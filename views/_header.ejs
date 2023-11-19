@@ -4,12 +4,18 @@
     <!-- Show this if the user is logged in -->
     <% if (locals.user) { %>
     <div class="user">
-        <img src="/images/profile.png" alt="Avatar">
         <div class="user-info">
+            <img src="/images/profile.png" alt="Avatar">
             <h3><%= user.name %></h3>
-            <a href="/users/profile/<%= user._id %>">Profile <i class="fa-solid fa-up-right-from-square"></i></a>
-            <a href="/users/sign-out">Logout <i class="fa-solid fa-up-right-from-square"></i></a> 
-        </div>  
+        </div>
+        <div class="profile-links">
+            <a href="/users/profile/<%= user._id %>">
+            Profile 
+            </a>
+            <a href="/users/sign-out">
+                Logout
+            </a>
+        </div>
     </div>
     <% }else { %>
     <!-- Show this if the user is not logged in -->

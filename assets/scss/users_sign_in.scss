@@ -29,8 +29,7 @@ main {
             background: transparent;
             border: none;
             outline: none;
-            border-bottom: 2px solid #000;
-            border-radius: 5px;
+            border-bottom: 2px solid #f87f8d;
             font-size: 16px;
             padding: 20px 45px 20px 20px;
 
@@ -54,7 +53,7 @@ main {
         background: #fff;
         border: none;
         outline: none;
-        border: 2px solid #000;
+        border: 2px solid #f87f8d;
         border-radius: 40px;
         cursor: pointer;
         font-size: 16px;
@@ -70,7 +69,7 @@ main {
         gap: 10px;
         i {
             font-size: 1.5rem;
-            color: #000;
+            color: #f87f8d;
         }
     }
 

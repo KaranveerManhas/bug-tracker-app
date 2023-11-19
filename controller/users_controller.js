@@ -47,6 +47,19 @@ module.exports.createUser = async function(req, res){
     
 }
 
+module.exports.updateUser = async function(req, res) {
+    try{
+        let user = await User.findByIdAndUpdate(req.user._id, {
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+        });
+        return res.redirect('back');
+    }catch(err){
+        console.log("Error in updateUser module: ",err);
+    }
+}
+
 module.exports.createSession = function(req, res) {
     console.log("Logged In");
     return res.redirect('/');

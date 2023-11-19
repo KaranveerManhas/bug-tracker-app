@@ -7,7 +7,7 @@ const sassMiddleware = require('node-sass-middleware');
 const MongoStore = require('connect-mongo');
 const session = require('express-session');
 const passportLocal = require('./config/passport-local-strategy');
-const passportGithub = require('passport-github2');
+const passportGithub = require('./config/passport-github2-strategy');
 const cookieParser = require('cookie-parser');
 const db = require('./config/mongoose');
 
