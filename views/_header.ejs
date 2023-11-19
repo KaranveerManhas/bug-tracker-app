@@ -1,23 +1,15 @@
 <link rel="stylesheet" href="/css/_header.css">
 
 <header>
-    <a href="/"><h1>Testify</h1></a>
     <!-- Show this if the user is logged in -->
     <% if (locals.user) { %>
     <div class="user">
+        <img src="/images/profile.png" alt="Avatar">
         <div class="user-info">
             <h3><%= user.name %></h3>
-        </div>
-        <img src="/images/profile.png" alt="Avatar">
-        <div class="dropdown">
-            <a href="#" class="dropbtn">
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-            </a>
-            <div class="dropdown-content">
-                <a href="/users/profile/<%= user._id %>">Profile</a>
-                <a href="/users/sign-out">Logout</a>
-            </div>
-        </div>
+            <a href="/users/profile/<%= user._id %>">Profile <i class="fa-solid fa-up-right-from-square"></i></a>
+            <a href="/users/sign-out">Logout <i class="fa-solid fa-up-right-from-square"></i></a> 
+        </div>  
     </div>
     <% }else { %>
     <!-- Show this if the user is not logged in -->
@@ -28,4 +20,5 @@
         </a>
     </div>
     <% } %>
+    <a href="/" id="home">Home</a>
 </header>

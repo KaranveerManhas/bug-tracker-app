@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/css/project_page.css">
+
+<main>
+    <div class="header">
+        <h2><%= project.name %></h2>
+        <div class="options">
+            <input type="text" id="bug-search" placeholder="Search bugs..">
+            <div class="dropdown">
+                <i class="fa-solid fa-filter"></i>
+                Filter
+                <div class="dropdown-menu">
+                    <input type="checkbox" name="fh" id="" class="filters"/>
+                    <label for="fh">Fh</label>
+                </div>
+            </div>
+            <a href="/issue" id="create-issue">
+                <i class="fa-regular fa-pen-to-square"></i>
+                Create Issue
+            </a>
+        </div>
+    </div>
+</main>

@@ -1,38 +1,36 @@
 main {
   font-family: 'Poppins';
-  padding: 0 50px; }
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  background-color: #fff; }
   main .project-heading {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 50px 0px 10px 10px; }
+    align-items: center; }
     main .project-heading h2 {
-      font-weight: 400;
-      text-transform: uppercase;
-      font-weight: 500;
-      background: linear-gradient(to right, #ff6e7f, #bfe9ff);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-background-clip: text; }
+      text-transform: capitalize;
+      font-weight: 500; }
     main .project-heading #create-project {
       padding: 0.6rem 1rem;
-      background-color: #fff;
-      color: #ff6e7f;
-      border-radius: 4px; }
+      border: 2px solid #f87f8d;
+      border-radius: 8px;
+      color: #f87f8d; }
       main .project-heading #create-project i {
-        color: #ff6e7f; }
+        color: #f87f8d; }
   main .projects {
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    height: 70vh;
+    gap: 20px;
+    max-height: 75vh;
     overflow: scroll; }
     main .projects::-webkit-scrollbar {
       display: none; }
     main .projects .card {
-      background-color: #383c41;
-      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
       width: 300px;
       height: 200px;
       border-radius: 1rem;
@@ -74,3 +72,5 @@ main {
           main .projects .card .issue-count-author-container .author img {
             max-width: 50px;
             border-radius: 50%; }
+          main .projects .card .issue-count-author-container .author p {
+            font-size: 14px; }

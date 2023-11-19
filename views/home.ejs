@@ -8,27 +8,29 @@
         </a>
     </div>
     <div class="projects">
+        <% for (project of projects){ %>
         <div class="card">
             <div class="info">
                 <h3 class="name">
-                    Project
-                    <a href="/projects/">
+                    <%= project.name %>
+                    <a href="/projects/<%= project._id %>">
                         <i class="fa-solid fa-up-right-from-square"></i>
                     </a>
                 </h3>
-                <p class="desc">Some description long enough to check if the ellipsis is working or not.</p>
+                <p class="desc"><%= project.description %></p>
             </div>
             <div class="issue-count-author-container">
                 <p class="total-issues">
-                    Issues: <span>25</span>
+                    Issues: <span><%= project.bugs.length %></span>
                 </p>
                 <div class="author">
                     <img src="/images/profile.png" alt="Profile">
                     <p class="author-name">
-                        Karanveer Singh
+                        <%= project.author.name %>
                     </p>
                 </div>
             </div>
         </div>
+        <% } %>
     </div>
 </main>

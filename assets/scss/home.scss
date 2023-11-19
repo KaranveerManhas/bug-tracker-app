@@ -1,27 +1,25 @@
 main{
     font-family: 'Poppins';
-    padding: 0 50px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background-color: #fff;
     .project-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 0px 10px 10px;
         h2 {
-            font-weight: 400;
-            text-transform: uppercase;
+            text-transform: capitalize;
             font-weight: 500;
-            background: linear-gradient(to right, #ff6e7f, #bfe9ff);
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
         }
         #create-project {
-            padding: 0.6rem 1rem;
-            background-color: #fff;
-            color: #ff6e7f;
-            border-radius: 4px;
+            padding: 0.6rem 1rem;  
+            border: 2px solid #f87f8d;
+            border-radius: 8px;
+            color: #f87f8d;
             i {
-                color: #ff6e7f;
+                color: #f87f8d;
             }
         }
     }
@@ -29,15 +27,15 @@ main{
         padding: 20px;
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem;
-        height: 70vh;
+        gap: 20px;
+        max-height: 75vh;
         overflow: scroll;
         &::-webkit-scrollbar {
             display: none;
         }
         .card {
-            background-color: #383c41;
-            box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
             width: 300px;
             height: 200px;
             border-radius: 1rem;
@@ -85,6 +83,9 @@ main{
                     img {
                         max-width: 50px;
                         border-radius: 50%;
+                    }
+                    p {
+                        font-size: 14px;
                     }
                 }
             }
