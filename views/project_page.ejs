@@ -6,17 +6,43 @@
         <div class="options">
             <input type="text" id="bug-search" placeholder="Search bugs..">
             <div class="dropdown">
-                <i class="fa-solid fa-filter"></i>
-                Filter
-                <div class="dropdown-menu">
-                    <input type="checkbox" name="fh" id="" class="filters"/>
-                    <label for="fh">Fh</label>
+                <button class="dropbtn"><i class="fa-solid fa-filter"></i> &nbsp;Filter</button>
+                <div class="dropdown-content">
+                  <label class="filter">
+                    Controller
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
                 </div>
-            </div>
+              </div>  
             <a href="/issue" id="create-issue">
                 <i class="fa-regular fa-pen-to-square"></i>
                 Create Issue
             </a>
         </div>
+    </div>
+    <div class="issues">
+      <% if (project.bugs.length == 0) { %>
+        <p class="no-issues-text">No Issues</p>
+        <% } %>
+      <table>
+        <tr>
+          <td>Title</td>
+          <td>Description</td>
+          <td>Labels</td>
+          <td>Author</td>
+        </tr>
+        <% for (bug of project.bugs) { %>
+          <tr>
+            <td><%= bug.title %></td>
+            <td><%= bug.description %></td>
+            <% var labels =""; %>
+            <td><% for(label of bug.labels){ %>
+              <% labels += label+", "; %>
+              <% } %>
+            <%= labels %></td>
+          </tr>
+          <% } %>
+      </table>
     </div>
 </main>

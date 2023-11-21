@@ -2,10 +2,12 @@ main {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
-  padding: 20px; }
+  box-shadow: 0 0 20px 0 rgba(23, 66, 88, 0.15);
+  padding: 20px;
+  gap: 50px; }
   main .header {
     width: 100%;
     height: 45px;
@@ -18,20 +20,104 @@ main {
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: space-between;
-      width: 50%; }
+      gap: 20px; }
       main .header .options input {
         border: 2px solid #f87f8d;
         outline: none;
         font-size: 14px;
-        width: 50%;
-        border-radius: 10px;
-        padding: 10px; }
+        border-radius: 4px;
+        padding: 5px 10px; }
         main .header .options input::placeholder {
           color: #f87f8d; }
+      main .header .options .dropdown {
+        border: 2px solid #f87f8d;
+        border-radius: 4px;
+        position: relative;
+        display: inline-block; }
+        main .header .options .dropdown:hover .dropdown-content {
+          display: block; }
+        main .header .options .dropdown .dropbtn {
+          width: 100%;
+          background-color: #fff;
+          color: #f87f8d;
+          padding: 10px;
+          font-size: 16px;
+          border: none; }
+        main .header .options .dropdown .dropdown-content {
+          display: none;
+          position: absolute;
+          right: 0;
+          top: 102%;
+          padding: 5px;
+          background-color: #f1f1f1;
+          min-height: 80px;
+          z-index: 1;
+          border-radius: 8px; }
+          main .header .options .dropdown .dropdown-content .filter {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none; }
+            main .header .options .dropdown .dropdown-content .filter:hover input ~ .checkmark {
+              background-color: #ccc; }
+            main .header .options .dropdown .dropdown-content .filter input {
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              height: 0;
+              width: 0; }
+              main .header .options .dropdown .dropdown-content .filter input:checked ~ .checkmark {
+                background-color: #f87f8d; }
+                main .header .options .dropdown .dropdown-content .filter input:checked ~ .checkmark::after {
+                  display: block; }
+            main .header .options .dropdown .dropdown-content .filter .checkmark {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 25px;
+              width: 25px;
+              background-color: #fff;
+              border-radius: 4px; }
+              main .header .options .dropdown .dropdown-content .filter .checkmark::after {
+                content: "";
+                position: absolute;
+                display: none;
+                left: 9px;
+                top: 5px;
+                width: 5px;
+                height: 10px;
+                border: solid #fff;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg); }
       main .header .options #create-issue {
         padding: 0.6rem 1rem;
         border: 2px solid #f87f8d;
-        border-radius: 10px;
+        border-radius: 4px;
         color: #f87f8d; }
         main .header .options #create-issue i {
           color: #f87f8d; }
+  main .issues {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border: 1px solid black;
+    color: lightgrey;
+    position: relative; }
+    main .issues .no-issues-text {
+      position: absolute;
+      font-size: 1.5rem;
+      left: 42%;
+      top: 45%; }
+    main .issues table {
+      width: 100%; }
+      main .issues table tr td {
+        width: 25%;
+        text-align: center; }

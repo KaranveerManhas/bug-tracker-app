@@ -4,9 +4,9 @@
     <form action="/users/update/<%= locals.user._id %>" method="post">
         <div class="wrapper">
             <h2>Update Profile</h2>
-                <input type="text" name="name" placeholder="Full Name" value="<%= locals.user.name %>">
-                <input type="email" name="email" placeholder="Email" value="<%= locals.user.email%>">
-                <input type="password" name="password" placeholder="Password" value="<%= locals.user.password %>">
+                <input type="text" name="name" placeholder="Full Name" value="<%= locals.user.name %>" required>
+                <input type="email" name="email" placeholder="Email" value="<%= locals.user.email%>" required>
+                <input type="password" name="password" placeholder="Password" value="<%= locals.user.password %>" required>
                 <button type="submit" class="btn">Update</button>
         </div>
     </form>

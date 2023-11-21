@@ -2,8 +2,8 @@ main {
   font-family: "Poppins";
   padding: 20px;
   width: 100%;
-  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 20px 0 rgba(23, 66, 88, 0.15);
+          box-shadow: 0 0 20px 0 rgba(23, 66, 88, 0.15);
   border-radius: 20px;
   background-color: #fff;
 }
@@ -47,8 +47,8 @@ main .projects::-webkit-scrollbar {
 }
 main .projects .card {
   background-color: #fff;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 20px 0 rgba(23, 66, 88, 0.15);
+          box-shadow: 0 0 20px 0 rgba(23, 66, 88, 0.15);
   width: 300px;
   height: 200px;
   border-radius: 1rem;

@@ -37,7 +37,6 @@ module.exports.projectDetails = async function(req, res) {
             }
         });
         // console.log(project);
-
         return res.render("project_page", {
             title: "Project Details",
             project: project
