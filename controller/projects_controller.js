@@ -33,13 +33,26 @@ module.exports.projectDetails = async function(req, res) {
         let project = await Project.findById(req.params.id).populate('author').populate({
             path: 'bugs',
             populate: {
+                path: 'labels'
+            },
+            populate: {
                 path: 'author'
             }
         });
+        console.log(project);
+        let labels = [];
+        project.bugs.forEach(function(bug){
+            for (lb of bug.labels){
+                if (!labels.includes(lb)){
+                    labels.push(lb);
+                }
+            }
+        })
         // console.log(project);
         return res.render("project_page", {
             title: "Project Details",
-            project: project
+            project: project,
+            labels: labels
         });
 
     }catch(err){

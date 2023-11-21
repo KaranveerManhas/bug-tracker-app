@@ -18,6 +18,10 @@ const bugSchema = new mongoose.Schema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
+    },
+    project: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'project'
     }
 }, {
     timestamps: true

@@ -2,7 +2,7 @@
 
 <main>
     <div class="wrapper">
-        <form action="/issue/create" method="post">
+        <form action="/issue/create/<%= project_id %>" method="post">
             <h2>Create An Issue</h2>
             <input type="text" placeholder="Issue's Title" name="title" required>
             <textarea name="description" id="description" cols="50" rows="5" placeholder="Description.." required></textarea>
