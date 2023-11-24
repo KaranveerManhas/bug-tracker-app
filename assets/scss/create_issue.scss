@@ -24,9 +24,20 @@ main {
             border-bottom: 2px solid #f87f8d;
             font-size: 16px;
             padding: 20px 45px 20px 20px;
-
             &::placeholder {
                 color: #f87f8d;
+            }
+        }
+
+        .label-div{
+            width: 100%;
+            position: relative;
+            .label-requirements{
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                font-size: 13px;
+                color: grey;
             }
         }
 

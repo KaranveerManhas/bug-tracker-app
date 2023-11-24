@@ -5,6 +5,7 @@ const projectController = require('../controller/projects_controller');
 
 router.get('/', passport.checkAuthentication, projectController.home);
 router.post('/create', passport.checkAuthentication, projectController.createProject);
+router.get('/delete/:id', passport.checkAuthentication, projectController.deleteProject);
 router.get('/:id', projectController.projectDetails);
 
 module.exports = router;

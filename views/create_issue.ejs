@@ -4,9 +4,12 @@
     <div class="wrapper">
         <form action="/issue/create/<%= project_id %>" method="post">
             <h2>Create An Issue</h2>
-            <input type="text" placeholder="Issue's Title" name="title" required>
+            <input type="text" placeholder="Issue Title" name="title" required>
             <textarea name="description" id="description" cols="50" rows="5" placeholder="Description.." required></textarea>
-            <input type="text" placeholder="Labels.." name="labels" id="labels" required>
+            <div class="label-div">
+                <p class="label-requirements">Please separate multiple labels with ','</p>
+                <input type="text" placeholder="Labels.." name="labels" id="labels" required>
+            </div>
             <input type="text" value="Author - <%= locals.user.name %>" placeholder="Author" disabled>
             <button type="submit" class="btn">Create</button>
         </form>

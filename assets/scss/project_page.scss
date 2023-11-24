@@ -15,6 +15,8 @@ main {
         height: 45px;
         display:flex;
         flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
         justify-content: space-between;
         color: #f87f8d;
         .options {
@@ -137,9 +139,13 @@ main {
         width: 100%;
         height: 100%;
         padding: 20px;
-        border: 1px solid black;
-        color: lightgrey;
+        // border: 1px solid black;
+        color: grey;
         position: relative;
+        overflow: scroll;
+        &::-webkit-scrollbar{
+            display: none;
+        }
         .no-issues-text{
             position: absolute;
             font-size: 1.5rem;
@@ -149,10 +155,41 @@ main {
         table {
             width: 100%;
             tr{
+                .bug-title{
+                    position: relative;
+                }
                 td{
                     width: 25%;
+                    padding: 10px;
                     text-align: center;
+                    .delete-bug{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        padding: 10px;
+                        margin: 0 10px 10px 0;
+                        &:hover{
+                            color: #f87f8d;
+                        }
+
+                    }
+                    .description{
+                        display: block;
+                        display: -webkit-box;
+                        max-width: 150px;
+                        height: 20px;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
                 }
+
+                .labels{
+                    
+                    text-overflow: ellipsis;
+                }
+                
             }
         }
     }

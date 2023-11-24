@@ -13,6 +13,8 @@ main {
     height: 45px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: space-between;
     color: #f87f8d; }
     main .header .options {
@@ -108,9 +110,11 @@ main {
     width: 100%;
     height: 100%;
     padding: 20px;
-    border: 1px solid black;
-    color: lightgrey;
-    position: relative; }
+    color: grey;
+    position: relative;
+    overflow: scroll; }
+    main .issues::-webkit-scrollbar {
+      display: none; }
     main .issues .no-issues-text {
       position: absolute;
       font-size: 1.5rem;
@@ -118,6 +122,28 @@ main {
       top: 45%; }
     main .issues table {
       width: 100%; }
+      main .issues table tr .bug-title {
+        position: relative; }
       main .issues table tr td {
         width: 25%;
+        padding: 10px;
         text-align: center; }
+        main .issues table tr td .delete-bug {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 10px;
+          margin: 0 10px 10px 0; }
+          main .issues table tr td .delete-bug:hover {
+            color: #f87f8d; }
+        main .issues table tr td .description {
+          display: block;
+          display: -webkit-box;
+          max-width: 150px;
+          height: 20px;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+      main .issues table tr .labels {
+        text-overflow: ellipsis; }

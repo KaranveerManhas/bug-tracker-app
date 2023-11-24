@@ -11,7 +11,7 @@
                   <% for(label of labels){ %>
                   <label class="filter">
                     <%= label %>
-                    <input type="checkbox" data-label="<%= label %>">
+                    <input  type="checkbox" data-label="<%= label %>">
                     <span class="checkmark"></span>
                   </label>
                   <% } %>
@@ -35,12 +35,21 @@
           <td>Author</td>
         </tr>
         <% for (bug of project.bugs) { %>
-          <tr>
-            <td><%= bug.title %></td>
-            <td><%= bug.description %></td>
+          <tr id="bug-<%= bug._id %>">
+            <td class="bug-title">
+              <% if(locals.user.id == bug.author.id){ %>
+                <a href="/issue/delete/<%= bug._id %>" class="delete-bug">
+                  <i class="fa-solid fa-trash-can" ></i>
+                </a>
+              <% } %>
+              <%= bug.title %>
+            </td>
+            <td>
+              <p class="description"><%= bug.description %></p>
+            </td>
             <% var labels =""; %>
-            <td><% for(label of bug.labels){ %>
-                <% labels += label+", "; %>
+            <td class="labels"><% for(label of bug.labels){ %>
+                <% labels += label + ""; %>
                 <% } %>
               <%= labels %>
             </td>
@@ -52,3 +61,5 @@
       </table>
     </div>
 </main>
+
+<script src="/js/project_page.js"></script>

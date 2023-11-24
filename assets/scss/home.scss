@@ -12,6 +12,7 @@ main{
         h2 {
             text-transform: capitalize;
             font-weight: 500;
+            color: #f87f8d;
         }
         #create-project {
             padding: 0.6rem 1rem;  
@@ -43,6 +44,17 @@ main{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            
+            .delete-project{
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 20px;
+                &:hover{
+                    color: #f87f8d;
+                }
+            }
             .info {
                 display: flex;
                 flex-direction: column;
