@@ -53,3 +53,35 @@ module.exports.deleteIssue = async function(req, res){
     }
 
 }
+
+module.exports.searchBySearchTerm = async function(req, res){
+
+    try{
+        let searchTerm = req.query.searchTerm.toLowerCase();
+        let bugArray = [];
+
+        let bugs = await Bug.find({
+            project: req.query.pId,
+        }).populate('author');
+        bugs.forEach(function(bug){
+            if(bug.title.toLowerCase().includes(searchTerm) || bug.description.toLowerCase().includes(searchTerm)){
+                bugArray.push(bug);
+            }
+        });
+
+        return res.status(200).json({
+            message: "Bugs Found",
+            bugs: bugArray
+        });
+
+
+
+    }catch(err){
+        console.log("Error in searchBySearchTerm module: ", err);
+    }
+}
+
+
+module.exports.searchByFilter = async function(req, res){
+
+}

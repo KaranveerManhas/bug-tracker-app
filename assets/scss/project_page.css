@@ -90,13 +90,23 @@ main .header .options .dropdown .dropbtn {
 main .header .options .dropdown .dropdown-content {
   display: none;
   position: absolute;
-  right: 0;
+  left: -50px;
   top: 102%;
-  padding: 5px;
+  padding: 10px;
   background-color: #f1f1f1;
   min-height: 80px;
   z-index: 1;
   border-radius: 8px;
+  width: 170px;
+  overflow-x: hidden;
+  max-height: 160px;
+  overflow-y: scroll;
+}
+main .header .options .dropdown .dropdown-content ul {
+  list-style: none;
+}
+main .header .options .dropdown .dropdown-content ul h3 {
+  padding: 5px;
 }
 main .header .options .dropdown .dropdown-content .filter {
   display: block;

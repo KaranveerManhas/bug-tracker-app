@@ -56,13 +56,24 @@ main {
                 .dropdown-content {
                     display: none;
                     position: absolute;
-                    right: 0;
+                    left: -50px;
                     top: 102%;
-                    padding: 5px;
+                    padding: 10px;
                     background-color: #f1f1f1;
                     min-height: 80px;
                     z-index: 1;
                     border-radius: 8px;
+                    width: 170px;
+                    overflow-x: hidden;
+                    max-height: 160px;
+                    overflow-y: scroll;
+
+                    ul{
+                        list-style: none;
+                        h3{
+                            padding: 5px;
+                        }
+                    }
                     .filter {
                         display: block;
                         position: relative;

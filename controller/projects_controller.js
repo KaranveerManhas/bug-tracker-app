@@ -62,20 +62,35 @@ module.exports.projectDetails = async function(req, res) {
                 path: 'author'
             }
         });
-        console.log(project);
+
         let labels = [];
+        let authors = [];
         project.bugs.forEach(function(bug){
             for (lb of bug.labels){
                 if (!labels.includes(lb)){
                     labels.push(lb);
                 }
             }
+            if(!authors.includes(bug.author)){
+                authors.push(bug.author);
+            }
         })
+
+        if(req.xhr){
+            return res.status(200).json({
+                message: "Bug List procured",
+                data: {
+                    bugs: project.bugs
+                }
+            })
+        }
+
         // console.log(project);
         return res.render("project_page", {
             title: "Project Details",
             project: project,
-            labels: labels
+            labels: labels,
+            authors: authors
         });
 
     }catch(err){

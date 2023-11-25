@@ -1,20 +1,37 @@
 <link rel="stylesheet" href="/css/project_page.css">
 
-<main>
+<main id="project-<%= project._id %>">
     <div class="header">
         <h2><%= project.name %></h2>
         <div class="options">
-            <input type="text" id="bug-search" placeholder="Search bugs..">
+            <input type="text" id="bug-search" placeholder="Search by title or description..">
             <div class="dropdown">
                 <button class="dropbtn"><i class="fa-solid fa-filter"></i> &nbsp;Filter</button>
                 <div class="dropdown-content">
-                  <% for(label of labels){ %>
-                  <label class="filter">
-                    <%= label %>
-                    <input  type="checkbox" data-label="<%= label %>">
-                    <span class="checkmark"></span>
-                  </label>
-                  <% } %>
+                  <ul>
+                    <h3>Labels</h3>
+                    <% for(label of labels){ %>
+                      <li>
+                          <label class="filter label-filter">
+                            <%= label %>
+                            <input  type="checkbox" id="label-<%= label %>">
+                            <span class="checkmark"></span>
+                          </label>
+                      </li>
+                    <% } %>
+                  </ul>
+                  <ul>
+                    <h3>Authors</h3>
+                    <% for (author of authors){ %>
+                      <li>
+                          <label class="filter author-filter">
+                            <%= author.name %>
+                            <input  type="checkbox" id="author-<%= author._id %>">
+                            <span class="checkmark"></span>
+                          </label>
+                      </li>
+                    <% } %>
+                  </ul>
                 </div>
               </div>  
             <a href="/issue?id=<%= project._id %>" id="create-issue">
@@ -48,11 +65,22 @@
               <p class="description"><%= bug.description %></p>
             </td>
             <% var labels =""; %>
-            <td class="labels"><% for(label of bug.labels){ %>
-                <% labels += label + ""; %>
+            <% if(bug.labels.length > 1){ %>
+              <td class="labels">
+                <% for(let i=0; i < bug.labels.length; i++){ %>
+                  <% if(i == bug.labels.length-1){ %>
+                    <% labels += bug.labels[i]; %>
+                  <% }else{ %>
+                    <% labels += bug.labels[i] + ", "; %>
+                  <% } %>
                 <% } %>
-              <%= labels %>
-            </td>
+                <%= labels %>
+              </td>
+              <% }else{ %>
+                <td class="labels">
+                  <%= bug.labels[0] %>
+                </td>
+              <% } %>
             <td>
               <%= bug.author.name %>
             </td>
