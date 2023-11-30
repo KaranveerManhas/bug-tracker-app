@@ -67,8 +67,8 @@ module.exports.projectDetails = async function(req, res) {
         let authors = [];
         project.bugs.forEach(function(bug){
             for (lb of bug.labels){
-                if (!labels.includes(lb)){
-                    labels.push(lb);
+                if (!labels.includes(lb.trim())){
+                    labels.push(lb.trim());
                 }
             }
             if(!authors.includes(bug.author)){
@@ -80,12 +80,12 @@ module.exports.projectDetails = async function(req, res) {
             return res.status(200).json({
                 message: "Bug List procured",
                 data: {
-                    bugs: project.bugs
+                    bugs: project.bugs,
+                    user: req.user
                 }
             })
         }
-
-        // console.log(project);
+        
         return res.render("project_page", {
             title: "Project Details",
             project: project,

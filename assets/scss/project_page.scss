@@ -9,16 +9,25 @@ main {
     border-radius: 20px;
     box-shadow: 0 0 20px 0 rgba(23,66,88,.15);
     padding: 20px;
-    gap: 50px;
+    gap: 70px;
     .header {
         width: 100%;
-        height: 45px;
         display:flex;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 20px;
         justify-content: space-between;
+        align-items: center;
         color: #f87f8d;
+        h2{
+            p{
+                margin-top: 5px;
+                font-size: 14px;
+                max-width: 250px;
+                color: #f87f8d;
+                font-weight: 500;
+            }
+        }
         .options {
             display:flex;
             flex-direction: row;
@@ -151,7 +160,7 @@ main {
         height: 100%;
         padding: 20px;
         // border: 1px solid black;
-        color: grey;
+        color: rgb(102, 102, 102);
         position: relative;
         overflow: scroll;
         &::-webkit-scrollbar{
@@ -166,24 +175,13 @@ main {
         table {
             width: 100%;
             tr{
-                .bug-title{
-                    position: relative;
-                }
+                box-shadow: 0px 3px 0px #ccc;
+                border-radius: 3px;
                 td{
                     width: 25%;
                     padding: 10px;
-                    text-align: center;
-                    .delete-bug{
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        padding: 10px;
-                        margin: 0 10px 10px 0;
-                        &:hover{
-                            color: #f87f8d;
-                        }
-
-                    }
+                    // text-align: center;
+                    
                     .description{
                         display: block;
                         display: -webkit-box;
@@ -196,9 +194,37 @@ main {
                     }
                 }
 
+                .bug-title{
+                    div{
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        // justify-content: space-between;
+                        align-items: center;
+                        a.delete-bug{
+                            margin-left: auto;
+                            margin-right: 30%;
+                        }
+                        a{
+                            color: rgb(102, 102, 102);
+                            &:hover{
+                                color: #f87f8d;
+                            }
+                        }
+                    }
+                }
+
                 .labels{
-                    
-                    text-overflow: ellipsis;
+                    p{
+                        display: block;
+                        display: -webkit-box;
+                        max-width: 150px;
+                        height: 20px;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
                 }
                 
             }

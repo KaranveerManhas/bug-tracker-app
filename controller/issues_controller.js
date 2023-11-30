@@ -1,6 +1,6 @@
 const Bug = require('../models/bugs');
 const Project = require('../models/projects');
-
+const User = require('../models/users');
 
 module.exports.home = function(req, res){
     return res.render('create_issue', {
@@ -11,7 +11,11 @@ module.exports.home = function(req, res){
 
 module.exports.createIssue = async function(req, res){
     try {
-        let labels = req.body.labels.split(",");
+        let labels = [];
+        labels = req.body.labels.split(",");
+        for(let i=0; i<labels.length; i++){
+            labels[i] = labels[i].trim();
+        }
 
         let bug = await Bug.create({
             title: req.body.title,
@@ -71,7 +75,8 @@ module.exports.searchBySearchTerm = async function(req, res){
 
         return res.status(200).json({
             message: "Bugs Found",
-            bugs: bugArray
+            bugs: bugArray,
+            user: req.user
         });
 
 
@@ -82,6 +87,50 @@ module.exports.searchBySearchTerm = async function(req, res){
 }
 
 
-module.exports.searchByFilter = async function(req, res){
+module.exports.searchByFilterLabel = async function(req, res){
+    try{
+        let bugLabels = req.query.labels;
 
+        let bugs = await Bug.find({
+            labels: bugLabels.length == 1 ? bugLabels[0] : {$all:bugLabels},
+            project: req.params.id
+        }).populate('author');
+
+        return res.status(200).json({
+            message: 'Bugs found',
+            data: {
+                bugs: bugs,
+                user: req.user
+            }
+        });
+    }catch(err){
+        console.log("Error in searchByFilterLabel module: ", err);
+    }
+}
+
+module.exports.searchByFilterAuthor = async function(req, res){
+    try{
+        let author = await User.findOne({
+            _id: req.query.author
+        });
+        let project = await Project.findOne({
+            _id: req.params.id
+        });
+    
+        let bugs = await Bug.find({
+            author: author,
+            project: project
+        }).populate('author');
+        
+        
+        return res.status(200).json({
+            message: "Bugs Found",
+            data: {
+                bugs: bugs
+            }
+        });
+
+    }catch(err){
+        console.log("Error in searchByFilterAuthor module: ", err);
+    }
 }

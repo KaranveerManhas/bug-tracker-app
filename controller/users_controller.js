@@ -1,6 +1,9 @@
 const User = require('../models/users');
 
 module.exports.signIn = function(req, res){
+    if(req.isAuthenticated()){
+        return res.redirect('/');
+    }
     return res.render('users_sign_in', {
         title: "Sign In || Testify"
     });
@@ -62,7 +65,7 @@ module.exports.updateUser = async function(req, res) {
 
 module.exports.createSession = function(req, res) {
     console.log("Logged In");
-    return res.redirect('/');
+    return res.redirect(`/`);
 }
 
 module.exports.destroySession = function(req, res) {

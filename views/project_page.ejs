@@ -1,8 +1,14 @@
 <link rel="stylesheet" href="/css/project_page.css">
-
+<% if(locals.user){ %>
+<main id="project-<%= project._id %>" data-user="<%= locals.user.id %>">
+<% } else { %>
 <main id="project-<%= project._id %>">
+<% } %>
     <div class="header">
-        <h2><%= project.name %></h2>
+        <h2>
+          <%= project.name %>
+          <p><%= project.description %></p>
+        </h2>
         <div class="options">
             <input type="text" id="bug-search" placeholder="Search by title or description..">
             <div class="dropdown">
@@ -12,9 +18,9 @@
                     <h3>Labels</h3>
                     <% for(label of labels){ %>
                       <li>
-                          <label class="filter label-filter">
+                          <label class="filter">
                             <%= label %>
-                            <input  type="checkbox" id="label-<%= label %>">
+                            <input  type="checkbox" id="label-<%= label %>" class="label-filter">
                             <span class="checkmark"></span>
                           </label>
                       </li>
@@ -24,9 +30,9 @@
                     <h3>Authors</h3>
                     <% for (author of authors){ %>
                       <li>
-                          <label class="filter author-filter">
+                          <label class="filter">
                             <%= author.name %>
-                            <input  type="checkbox" id="author-<%= author._id %>">
+                            <input  type="checkbox" id="author-<%= author._id %>" class="author-filter">
                             <span class="checkmark"></span>
                           </label>
                       </li>
@@ -54,12 +60,15 @@
         <% for (bug of project.bugs) { %>
           <tr id="bug-<%= bug._id %>">
             <td class="bug-title">
-              <% if(locals.user.id == bug.author.id){ %>
-                <a href="/issue/delete/<%= bug._id %>" class="delete-bug">
-                  <i class="fa-solid fa-trash-can" ></i>
-                </a>
-              <% } %>
-              <%= bug.title %>
+              <div>
+                <a href="/issue/<%= bug._id %>"><%= bug.title %></a>
+
+                <% if(locals.user && locals.user.id == bug.author.id){ %>
+                  <a href="/issue/delete/<%= bug._id %>" class="delete-bug">
+                    <i class="fa-solid fa-trash-can" ></i>
+                  </a>
+                <% } %>
+              </div>
             </td>
             <td>
               <p class="description"><%= bug.description %></p>
@@ -74,7 +83,7 @@
                     <% labels += bug.labels[i] + ", "; %>
                   <% } %>
                 <% } %>
-                <%= labels %>
+                <p><%= labels %></p>
               </td>
               <% }else{ %>
                 <td class="labels">

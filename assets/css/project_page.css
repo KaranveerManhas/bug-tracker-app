@@ -7,16 +7,22 @@ main {
   border-radius: 20px;
   box-shadow: 0 0 20px 0 rgba(23, 66, 88, 0.15);
   padding: 20px;
-  gap: 50px; }
+  gap: 70px; }
   main .header {
     width: 100%;
-    height: 45px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;
+    align-items: center;
     color: #f87f8d; }
+    main .header h2 p {
+      margin-top: 5px;
+      font-size: 14px;
+      max-width: 250px;
+      color: #f87f8d;
+      font-weight: 500; }
     main .header .options {
       display: flex;
       flex-direction: row;
@@ -118,7 +124,7 @@ main {
     width: 100%;
     height: 100%;
     padding: 20px;
-    color: grey;
+    color: #666666;
     position: relative;
     overflow: scroll; }
     main .issues::-webkit-scrollbar {
@@ -130,21 +136,34 @@ main {
       top: 45%; }
     main .issues table {
       width: 100%; }
-      main .issues table tr .bug-title {
-        position: relative; }
-      main .issues table tr td {
-        width: 25%;
-        padding: 10px;
-        text-align: center; }
-        main .issues table tr td .delete-bug {
-          position: absolute;
-          top: 0;
-          left: 0;
-          padding: 10px;
-          margin: 0 10px 10px 0; }
-          main .issues table tr td .delete-bug:hover {
-            color: #f87f8d; }
-        main .issues table tr td .description {
+      main .issues table tr {
+        box-shadow: 0px 3px 0px #ccc;
+        border-radius: 3px; }
+        main .issues table tr td {
+          width: 25%;
+          padding: 10px; }
+          main .issues table tr td .description {
+            display: block;
+            display: -webkit-box;
+            max-width: 150px;
+            height: 20px;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis; }
+        main .issues table tr .bug-title div {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center; }
+          main .issues table tr .bug-title div a.delete-bug {
+            margin-left: auto;
+            margin-right: 30%; }
+          main .issues table tr .bug-title div a {
+            color: #666666; }
+            main .issues table tr .bug-title div a:hover {
+              color: #f87f8d; }
+        main .issues table tr .labels p {
           display: block;
           display: -webkit-box;
           max-width: 150px;
@@ -153,5 +172,3 @@ main {
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis; }
-      main .issues table tr .labels {
-        text-overflow: ellipsis; }
