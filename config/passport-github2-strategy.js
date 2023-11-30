@@ -4,18 +4,21 @@ const crypto = require('crypto');
 const User = require('../models/users.js');
 const { builtinModules } = require('module');
 
-
+// Passport Github Strategy
 passport.use(new GithubStrategy({
-    clientID: 'd0af878070cef5f80df9',
-    clientSecret: '00d00d47079fc3912920fcce9926be826929d73a',
-    callbackURL: "http://localhost:5000/users/auth/github/callback",
+    // Used variables stored in environment variables
+    clientID: process.env.PASSPORT_GITHUB_CLIENT_ID,
+    clientSecret: process.env.PASSPORT_GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.PASSPORT_GITHUB_CALLBACK_URL,
     scope: 'user:email'
     },
     async function(accessToken, refreshToken, profile, done){
         try {
+            // Check if user exists
             let user = await User.findOne({
                 email: profile.emails[0].value
             });
+            // If no user found create a new one
             if(!user) {
                 try {
                     let newUser = await User.create({
@@ -29,6 +32,7 @@ passport.use(new GithubStrategy({
                     return;
                 }
             }
+            // If user is found, pass the user
             console.log("User already exists");
             return done(null, user);
         }catch(err){
@@ -36,4 +40,6 @@ passport.use(new GithubStrategy({
         }
     }
 ));
+
+// Export the strategy
 module.exports = passport;

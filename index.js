@@ -1,5 +1,7 @@
 const express = require('express');
 const port = 5000;
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
 const expressLayout = require('express-ejs-layouts');
 const passport = require('passport');
