@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/css/create_bug.css">
+
+<main>
+    <div class="wrapper">
+        <form action="/bugs/create/<%= project_id %>" method="post">
+            <h2>Create A Bug</h2>
+            <input type="text" placeholder="Bug Title" name="title" required>
+            <textarea name="description" id="description" cols="50" rows="5" placeholder="Description.." required></textarea>
+            <div class="label-div">
+                <p class="label-requirements">Please separate multiple labels with ','</p>
+                <input type="text" placeholder="Labels.." name="labels" id="labels" required>
+                <div class="dropdown">
+                    <% for(label of labels){ %>
+                       <a href="#" id="<%= label %>"><%= label %></a>
+                    <% } %>
+                </div>
+            </div>
+            <input type="text" value="Author - <%= locals.user.name %>" placeholder="Author" name="author" disabled>
+            <button type="submit" class="btn">Create</button>
+        </form>
+    </div>
+</main>
+<script src="/js/create_bug.js"></script>

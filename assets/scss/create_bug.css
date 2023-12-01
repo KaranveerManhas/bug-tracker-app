@@ -60,6 +60,23 @@ main .wrapper .label-div .label-requirements {
   font-size: 13px;
   color: grey;
 }
+main .wrapper .label-div .dropdown {
+  display: none;
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  padding: 10px 20px;
+  background: #f5f5f5;
+  max-height: 100px;
+  overflow-y: auto;
+}
+main .wrapper .label-div .dropdown a {
+  display: block;
+  margin: 5px;
+}
+main .wrapper .label-div .dropdown a:hover {
+  color: #f87f8d;
+}
 main .wrapper textarea {
   width: 100%;
   height: 100px;
@@ -100,4 +117,4 @@ main .wrapper .btn {
   font-size: 18px;
   color: #f87f8d;
   font-weight: 600;
-}/*# sourceMappingURL=create_issue.css.map */
+}/*# sourceMappingURL=create_bug.css.map */

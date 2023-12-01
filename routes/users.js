@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+// Import User controller
 const usersController = require('../controller/users_controller');
 
-
+// Routes for users
 router.get('/sign-in', usersController.signIn);
 router.get('/sign-up', usersController.signUp);
 router.post('/create', usersController.createUser);

@@ -208,7 +208,7 @@ main .issues table tr td {
 main .issues table tr td .description {
   display: block;
   display: -webkit-box;
-  max-width: 150px;
+  max-width: 100%;
   height: 20px;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -238,7 +238,7 @@ main .issues table tr .bug-title div a:hover {
 main .issues table tr .labels p {
   display: block;
   display: -webkit-box;
-  max-width: 150px;
+  max-width: 100%;
   height: 20px;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;

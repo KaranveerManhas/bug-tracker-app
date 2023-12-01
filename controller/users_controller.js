@@ -1,20 +1,22 @@
 const User = require('../models/users');
 
+// Sign in Page
 module.exports.signIn = function(req, res){
     if(req.isAuthenticated()){
         return res.redirect('/');
     }
     return res.render('users_sign_in', {
-        title: "Sign In || Testify"
+        title: "Sign In || BugTracker"
     });
 }
 
+// Sign up page
 module.exports.signUp = function(req, res){
     return res.render('users_sign_up', {
-        title: "Sign Up || Testify"
+        title: "Sign Up || BugTracker"
     });
 }
-
+// User profile page
 module.exports.profile = async function(req, res){
     try {
         let user = await User.findById(req.params.id);
@@ -27,6 +29,7 @@ module.exports.profile = async function(req, res){
     }
 }
 
+// Module for creating a user
 module.exports.createUser = async function(req, res){
     try {
         let user = await User.findOne({
@@ -50,6 +53,7 @@ module.exports.createUser = async function(req, res){
     
 }
 
+// Module for updating user details
 module.exports.updateUser = async function(req, res) {
     try{
         let user = await User.findByIdAndUpdate(req.user._id, {
@@ -63,11 +67,13 @@ module.exports.updateUser = async function(req, res) {
     }
 }
 
+// Module for logging in
 module.exports.createSession = function(req, res) {
     console.log("Logged In");
     return res.redirect(`/`);
 }
 
+// Module for destroying session cookies and logging user out
 module.exports.destroySession = function(req, res) {
     req.logout(function(err){
         if(err){

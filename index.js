@@ -34,8 +34,8 @@ app.set("view engine", "ejs");
 app.set('views', './views');
 
 app.use(session({
-    name: "issue-tracker",
-    secret: "ahgjk",
+    name: process.env.SESSION_NAME,
+    secret: process.env.SESSION_SECRET_KEY,
     saveUninitialized: false,
     resave: false,
     cookie: {

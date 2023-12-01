@@ -40,15 +40,15 @@
                   </ul>
                 </div>
               </div>  
-            <a href="/issue?id=<%= project._id %>" id="create-issue">
+            <a href="/bugs?id=<%= project._id %>" id="create-issue">
                 <i class="fa-regular fa-pen-to-square"></i>
-                Create Issue
+                Create Bug
             </a>
         </div>
     </div>
     <div class="issues">
       <% if (project.bugs.length == 0) { %>
-        <p class="no-issues-text">No Issues</p>
+        <p class="no-issues-text">No Bugs so far...</p>
         <% } %>
       <table>
         <tr>
@@ -61,10 +61,10 @@
           <tr id="bug-<%= bug._id %>">
             <td class="bug-title">
               <div>
-                <a href="/issue/<%= bug._id %>"><%= bug.title %></a>
+                <a href="/bugs/<%= bug._id %>"><%= bug.title %></a>
 
                 <% if(locals.user && locals.user.id == bug.author.id){ %>
-                  <a href="/issue/delete/<%= bug._id %>" class="delete-bug">
+                  <a href="/bugs/delete/<%= bug._id %>" class="delete-bug">
                     <i class="fa-solid fa-trash-can" ></i>
                   </a>
                 <% } %>

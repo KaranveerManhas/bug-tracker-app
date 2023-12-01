@@ -1,9 +1,11 @@
+// Import Project Schema 
 const Project = require('../models/projects');
-const User = require('../models/users');
 
+// Render homepage and pass all projects
 module.exports.home = async function(req, res){
     try{
         let projects = await Project.find({}).populate('author');
+
         return res.render('home', {
             title: "Home",
             projects: projects

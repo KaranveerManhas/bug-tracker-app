@@ -1,13 +1,14 @@
 const Project = require('../models/projects');
 const Bug = require('../models/bugs');
 
-
+// Module for rendering create project page
 module.exports.home = function(req, res){
     return res.render('create_project', {
         title: 'Create a Project'
     });
 }
 
+// Module for creating project
 module.exports.createProject = async function(req, res){
     try {
         let project = await Project.findOne({
@@ -28,6 +29,7 @@ module.exports.createProject = async function(req, res){
     }
 }
 
+// Module to delete project
 module.exports.deleteProject = async function(req, res){
     try{
 
@@ -51,6 +53,7 @@ module.exports.deleteProject = async function(req, res){
     }
 }
 
+// Module to render the project details page 
 module.exports.projectDetails = async function(req, res) {
     try {
         let project = await Project.findById(req.params.id).populate('author').populate({

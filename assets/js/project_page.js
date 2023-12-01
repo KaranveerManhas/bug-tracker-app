@@ -39,7 +39,7 @@
             }else{
                 $.ajax({
                     type: "GET",
-                    url: `/issue/search?searchTerm=${searchValue}&pId=${projectId}`,
+                    url: `/bugs/search?searchTerm=${searchValue}&pId=${projectId}`,
                     success: function(data){
                         // On success, get the bug table
                         let bugTable = $('table');
@@ -97,7 +97,7 @@
                 // Else make an ajax call to find bugs with those labels
                 $.ajax({
                     type: 'GET',
-                    url: `/issue/filter/label/${projectId}`,
+                    url: `/bugs/filter/label/${projectId}`,
                     data: {
                         labels: filterElements 
                     },
@@ -146,7 +146,7 @@
                 // And pass the author id extracted above as data to the controller
                 $.ajax({
                     type: 'GET',
-                    url: `/issue/filter/author/${projectId}`,
+                    url: `/bugs/filter/author/${projectId}`,
                     data: {
                         author: filterValue
                     },
