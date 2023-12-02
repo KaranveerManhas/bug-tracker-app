@@ -53,9 +53,8 @@ Ensure you have the following prerequisites installed on your machine:
     npm install
     ```
 4. **Setup Environment variables**
-    **The project needs the following environment variables to work:**
-
     ```
+    //The project needs the following environment variables to work:
     MONGODB_URI
     PASSPORT_GITHUB_CLIENT_ID
     PASSPORT_GITHUB_CLIENT_SECRET
