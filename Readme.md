@@ -23,6 +23,8 @@ The Bug Tracker Web App is a comprehensive web application designed to streamlin
 
 - **Ticket Creation:** Add detailed tickets for each bug, including title, description, labels and author. This facilitates clear communication and efficient collaboration.
 
+- **Search and filter:** Search bugs using their titles and description, and filter them using labels and authors.
+
 - **User-Friendly Interface:** The application features an intuitive and user-friendly interface, ensuring a seamless bug tracking experience for developers.
 
 ## Getting Started
@@ -51,7 +53,7 @@ Ensure you have the following prerequisites installed on your machine:
     npm install
     ```
 4. **Setup Environment variables**
-    The project needs the following environment variables to work:
+    **The project needs the following environment variables to work:**
 
     ```
     MONGODB_URI
@@ -77,7 +79,7 @@ Ensure you have the following prerequisites installed on your machine:
     - **Click on the "New Project" button.**
     - **Fill in the project details.**
     - **Click "Create Project" to save.**
-    
+
 2. **Add a Ticket:**
     - **Inside a project, click on the "New Ticket" button.**
     - **Provide ticket details (title, description, status, priority).**

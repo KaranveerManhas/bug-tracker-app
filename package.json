@@ -4,7 +4,8 @@
   "description": "A bug tracking tool for developers",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "install": "npm install connect-mongo cookie-parser crypto dotenv express ejs express-ejs-layouts express-session mongoose node-sass-middleware nodemon passport passport-local passport-github2"
   },
   "repository": {
     "type": "git",
@@ -25,15 +26,12 @@
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
-    "express-sessions": "^1.0.1",
-    "mongodb": "^6.3.0",
-    "mongoose": "^8.0.1",
+    "mongoose": "^8.0.2",
     "node-sass-middleware": "^1.1.0",
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.0.2",
     "passport": "^0.6.0",
     "passport-github2": "^0.1.12",
-    "passport-local": "^1.0.0",
-    "sass": "^1.69.5"
+    "passport-local": "^1.0.0"
   },
   "engines": {
     "node": ">=16.20.1"
