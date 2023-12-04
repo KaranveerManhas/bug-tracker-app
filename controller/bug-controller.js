@@ -2,7 +2,7 @@ const Bug = require('../models/bugs');
 const Project = require('../models/projects');
 const User = require('../models/users');
 
-// Module for rendering create a new bug
+// Module for rendering create a new bug page
 module.exports.home = async function(req, res){
 
     try{

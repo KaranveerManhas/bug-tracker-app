@@ -1,20 +1,25 @@
 <link rel="stylesheet" href="/css/project_page.css">
+<!-- The custom attribute data-user is necessary for the javascript code to check if the user is logged in or not. -->
 <% if(locals.user){ %>
 <main id="project-<%= project._id %>" data-user="<%= locals.user.id %>">
 <% } else { %>
 <main id="project-<%= project._id %>">
 <% } %>
+    <!-- Container for info about project and search, filter and create bug options  -->
     <div class="header">
         <h2>
           <%= project.name %>
           <p><%= project.description %></p>
         </h2>
         <div class="options">
+          <!-- The search bar will invoke an ajax call on every keystroke -->
             <input type="text" id="bug-search" placeholder="Search by title or description..">
             <div class="dropdown">
                 <button class="dropbtn"><i class="fa-solid fa-filter"></i> &nbsp;Filter</button>
                 <div class="dropdown-content">
                   <ul>
+                    <!-- Selecting any filter will invoke an ajax call search for bugs matching those filters -->
+                    <!-- Filter by labels -->
                     <h3>Labels</h3>
                     <% for(label of labels){ %>
                       <li>
@@ -27,6 +32,7 @@
                     <% } %>
                   </ul>
                   <ul>
+                    <!-- Filter by author -->
                     <h3>Authors</h3>
                     <% for (author of authors){ %>
                       <li>
@@ -40,12 +46,14 @@
                   </ul>
                 </div>
               </div>  
+              <!-- Create bug button -->
             <a href="/bugs?id=<%= project._id %>" id="create-issue">
                 <i class="fa-regular fa-pen-to-square"></i>
                 Create Bug
             </a>
         </div>
     </div>
+    <!-- Bugs list -->
     <div class="issues">
       <% if (project.bugs.length == 0) { %>
         <p class="no-issues-text">No Bugs so far...</p>
@@ -57,6 +65,7 @@
           <td>Labels</td>
           <td>Author</td>
         </tr>
+        <!-- Iterating through bugs array of project and create a list of bugs -->
         <% for (bug of project.bugs) { %>
           <tr id="bug-<%= bug._id %>">
             <td class="bug-title">

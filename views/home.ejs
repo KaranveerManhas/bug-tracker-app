@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="/css/home.css">
 <main>
+    <!-- Project heading and create project button -->
     <div class="project-heading">
         <h2>Projects</h2>
         <a href="/projects" id="create-project">
@@ -7,10 +8,12 @@
             Create Project
         </a>
     </div>
+    <!-- Projects in card-like containers -->
     <div class="projects">
         <% for (project of projects){ %>
         <div class="card" id="project-<%= project._id %>">
             <% if (locals.user && locals.user.id == project.author._id){ %>
+                <!-- Ajax call -->
                 <a href="/projects/delete/<%= project._id %>" class="delete-project">
                     <i class="fa-solid fa-trash-can" ></i>
                 </a>
