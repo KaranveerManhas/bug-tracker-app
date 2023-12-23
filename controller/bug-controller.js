@@ -37,19 +37,19 @@ module.exports.home = async function(req, res){
 // Module for creating a bug
 module.exports.createBug = async function(req, res){
     try {
-        let labels = [];
-        labels = req.body.labels.split(",");
-        for(let i=0; i<labels.length; i++){
-            labels[i] = labels[i].trim();
-            if(labels[i] == " "){
-                labels.splice(i, 1);
+        let labelsArray = req.body.labels.split(",");
+        for(let i=0; i<labelsArray.length; i++){
+            if(labelsArray[i] == " " || labelsArray[i] == ""){
+                labelsArray.splice(i, 1);
+            }else {
+            labelsArray[i] = labelsArray[i].trim();
             }
         }
 
         let bug = await Bug.create({
             title: req.body.title,
             description: req.body.description,
-            labels: labels,
+            labels: labelsArray,
             author: req.user,
             project: req.params.id
         });
